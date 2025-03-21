@@ -1,0 +1,32 @@
+# Addressing Modes in ARM
+
+* **Addressing modes define how a CPU accesses data in memory.**
+
+💡 **Analogy:** Searching for a book 📖:
+- **Direct Addressing** – You have the exact shelf number.
+- **Indirect Addressing** – You ask a librarian for help.
+- **Indexed Addressing** – You check a table of contents.
+
+---
+
+## 🔍 Common Addressing Modes
+
+| Mode | Example | Description |
+|------|---------|-------------|
+| **Immediate** | `MOV R0, #5` | Directly using a value |
+| **Register** | `MOV R1, R0` | Copying from another register |
+| **Memory Indirect** | `LDR R2, [R3]` | Getting value from memory |
+| **Pre-Indexed** | `LDR R4, [R5, #4]!` | Fetches with offset before access |
+| **Post-Indexed** | `LDR R6, [R7], #4` | Fetches first, then moves to next location |
+
+---
+
+## 📌 Example: Loading Data
+
+```assembly
+LDR R0, [R1, #4]   // Load value from address (R1 + 4)
+```
+
+✅ **Practice:**
+1. Explain the difference between Pre-Indexed and Post-Indexed modes.
+2. Modify the example to store (`STR`) instead of load (`LDR`).
