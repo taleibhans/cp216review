@@ -1,0 +1,94 @@
+# CP216 Final Review Summary
+
+* **This summary wraps up the most critical topics for the final exam.**
+
+---
+
+## 📚 Key Concepts Overview
+
+### ✅ Assembly & Data Movement
+```assembly
+MOV R0, #5     // Load immediate value 5 into R0
+LDR R1, [R2]   // Load value from memory address in R2 into R1
+STR R1, [R2]   // Store R1’s value into memory at address R2
+```
+* Understand how values move between registers and memory.
+
+---
+
+### ✅ Addressing Modes
+```assembly
+MOV R0, #5       // Immediate Addressing
+LDR R1, [R2]     // Register Indirect Addressing
+LDR R3, [R2, #4] // Pre-indexed Addressing
+LDR R4, [R2], #4 // Post-indexed Addressing
+```
+* Be ready to explain and use different addressing modes.
+
+---
+
+### ✅ Branching & Loops
+```assembly
+CMP R0, #10   // Compare R0 with 10
+BGT Greater   // Branch if R0 > 10
+BLT Lower     // Branch if R0 < 10
+```
+```assembly
+MOV R1, #5  // Initialize counter
+LOOP:
+SUBS R1, R1, #1  // Decrement counter
+BNE LOOP  // Repeat if not zero
+```
+* Know how to implement and troubleshoot loops.
+
+---
+
+### ✅ Stack, Subroutines, and Stack Frames
+```assembly
+PUSH {R0, R1, LR}  // Save registers to stack
+BL myFunction      // Call function
+POP {R0, R1, LR}   // Restore registers
+```
+* Master the stack and function calls using `PUSH`, `POP`, `BL`, and `BX LR`.
+
+---
+
+### ✅ Input/Output & Interrupts
+```assembly
+// Writing to an LED
+MOV R0, #1
+STR R0, [R1]  // Store value to memory-mapped LED
+
+// Basic Interrupt Handler
+ISR_Handler:
+  PUSH {R0-R3}
+  LDR R0, [R1]     // Read button state
+  EOR R0, R0, #1   // Toggle LED
+  STR R0, [R1]
+  POP {R0-R3}
+  BX LR
+```
+* Understand memory-mapped I/O and interrupt handling.
+
+---
+
+## ✍️ Exam Strategy
+✅ **Know key instructions** (`MOV`, `ADD`, `SUB`, `LDR`, `STR`, `CMP`, `BXX`, `BL`).
+✅ **Be able to trace stack frames** during function calls.
+✅ **Practice writing and debugging loops.**
+✅ **Understand how interrupts improve efficiency.**
+
+---
+
+## 🔥 Final Practice Questions
+1. Write a subroutine that adds 2 numbers using the stack.
+2. Create a loop that turns on an LED every second.
+3. Describe how you'd handle a button press using an interrupt.
+4. Trace the stack before, during, and after a subroutine call.
+5. What happens if you don’t return from an ISR correctly?
+
+---
+
+✅ **You’ve got this!** Review key patterns, simulate code, and focus on understanding rather than memorization.
+
+Good luck 🍀
