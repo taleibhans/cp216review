@@ -1,0 +1,42 @@
+# Computer Architecture
+
+* **A computer consists of multiple hardware components that work together to execute programs.**
+
+💡 **Think of a CPU like a chef in a restaurant:**
+- **Ingredients (Data)** – The numbers it processes.
+- **Recipe (Program)** – A set of instructions.
+- **Chef (CPU)** – The processor that follows the instructions.
+- **Kitchen Helpers (Registers)** – Store frequently used values.
+- **Kitchen Counters (RAM)** – Holds temporary data.
+
+---
+
+## 🔄 Instruction Cycle (Fetch-Decode-Execute)
+
+1️ **Fetch:** Get the next instruction from memory.  
+2️ **Decode:** Determine what the instruction does.  
+3️ **Execute:** Perform the operation.
+
+💡 **Analogy:** Like following a cooking recipe – fetch a step, understand it, and execute it.
+
+---
+
+## 🖥️ CPU Components
+
+| Component | Role (Analogy) |
+|-----------|---------------|
+| **ALU (Arithmetic Logic Unit)** | The **knife** that processes numbers |
+| **Registers** | **Small bowls** for frequently used ingredients |
+| **Control Unit** | **Head Chef**, managing execution |
+| **Program Counter (PC)** | **Bookmark** for the next instruction |
+| **Stack** | **Pile of plates**, follows Last-In, First-Out (LIFO) |
+
+---
+
+## 📝 Practice Questions
+1. Explain the Fetch-Decode-Execute cycle in simple terms.
+2. Why are registers faster than RAM?
+3. What happens if the Program Counter (PC) is incorrect?
+4. Draw a simple diagram of a CPU’s architecture and label the components.
+
+✅ **Challenge:** Imagine you're designing a new processor. What special feature would you add to make it more efficient?
