@@ -1,0 +1,39 @@
+# Interrupt Handling Exercises
+
+## ⚡ 1. Fix the ISR Bug
+What is missing from this ISR?
+
+```assembly
+ISR_Handler:
+ADD R0, R0, #1
+BX LR
+```
+❓ **Question:** What must be added to save and restore registers?
+✅ **Fix:** Use `PUSH` and `POP` for proper state management.
+
+---
+
+## 🔁 2. Button Press Interrupt
+Write an ISR that detects a button press and toggles an LED.
+
+```assembly
+ISR_Button:
+  PUSH {R0-R3}     // Save registers
+  LDR R0, [R1]     // Read button state
+  CMP R0, #1       // Check if pressed
+  BNE END
+  LDR R1, [R2]     // Read LED state
+  EOR R1, R1, #1   // Toggle LED
+  STR R1, [R2]     // Store new LED state
+END:
+  POP {R0-R3}      // Restore registers
+  BX LR            // Return from ISR
+```
+✅ **Challenge:** Modify this to debounce the button (prevent repeated presses).
+
+---
+
+## 🧠 3. Compare Polling vs. Interrupts
+**Question:** What are the pros and cons of using interrupts instead of polling?
+
+✅ **Bonus Task:** Implement the same button press logic using polling and compare efficiency.
