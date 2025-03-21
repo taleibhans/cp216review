@@ -1,0 +1,48 @@
+# Stack Challenges
+
+## 🧠 1. Fix the Stack Corruption
+What’s wrong with this code?
+
+```assembly
+PUSH {R0, R1}
+MOV R0, #5
+MOV R1, #10
+ADD R2, R0, R1
+POP {R3}  // ??
+```
+❓ **Question:** Why is `POP {R3}` incorrect?
+✅ **Fix:** Make sure you `POP` the correct number of registers.
+
+---
+
+## 🔁 2. Recursive Factorial Using Stack
+Write a recursive function to calculate factorial using the stack.
+```assembly
+FACTORIAL:
+  CMP R0, #1
+  BLE BASE_CASE
+  PUSH {R0, LR}
+  SUB R0, R0, #1
+  BL FACTORIAL
+  POP {R1, LR}
+  MUL R0, R0, R1
+  BX LR
+
+BASE_CASE:
+  MOV R0, #1
+  BX LR
+```
+✅ **Challenge:** Modify to calculate Fibonacci numbers.
+
+---
+
+## 🛠️ 3. Stack Frame Debugging
+Trace the stack changes for the following function calls:
+```assembly
+PUSH {R0, R1, LR}
+MOV R0, #3
+MOV R1, #4
+ADD R2, R0, R1
+POP {R0, R1, LR}
+```
+✅ **Practice:** Identify what is saved and restored in each step.
