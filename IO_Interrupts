@@ -1,0 +1,49 @@
+# Input/Output and Interrupts in ARM
+
+* **I/O (Input/Output) lets a processor communicate with the outside world (like buttons, LEDs, sensors).**
+
+---
+
+## 💡 Memory-Mapped I/O
+In embedded systems, peripherals are accessed using **specific memory addresses**.
+
+```assembly
+// Writing to an LED
+MOV R0, #1       // Turn ON signal
+STR R0, [R1]     // Store to LED register (R1 holds LED address)
+```
+
+```assembly
+// Reading a Button
+LDR R0, [R2]     // Read from input register (R2 holds button address)
+```
+
+---
+
+## ⚡ What is an Interrupt?
+* An **interrupt** is a signal that **pauses normal execution** to handle urgent tasks.
+
+💡 **Analogy:** You’re cooking 🍳 when the **fire alarm** goes off! You **stop cooking**, handle the fire, then return to cooking.
+
+---
+
+## 🔄 Interrupt Service Routine (ISR)
+
+```assembly
+ISR_Handler:
+  PUSH {R0-R3}     // Save registers
+  LDR R0, [R1]     // Read LED state
+  EOR R0, R0, #1   // Toggle using XOR
+  STR R0, [R1]     // Write new state
+  POP {R0-R3}      // Restore registers
+  BX LR            // Return from ISR
+```
+
+📌 **Key Concepts:**
+- Interrupts allow the CPU to react to external events.
+- Saves state before handling tasks.
+
+✅ **Practice:**
+1. Modify the ISR to blink twice before returning.
+2. What’s the difference between polling and interrupts?
+3. Why do we save registers at the beginning of an ISR?
