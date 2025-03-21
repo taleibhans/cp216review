@@ -1,0 +1,55 @@
+# Assembly Practice Exercises
+
+## 🧠 1. Simple Addition
+Write ARM assembly code to add two numbers (5 and 10) and store the result in R2.
+
+```assembly
+MOV R0, #5
+MOV R1, #10
+ADD R2, R0, R1  // R2 = 5 + 10
+```
+✅ **Expected Output:** R2 = 15
+
+---
+
+## 🔁 2. Loop Countdown
+Write a loop that counts down from 5 to 0.
+```assembly
+MOV R0, #5
+LOOP:
+SUBS R0, R0, #1
+BNE LOOP
+```
+✅ **Challenge:** Modify to count **up** from 0 to 5.
+
+---
+
+## 💡 3. LED Toggle Simulation
+Simulate toggling an LED using XOR (EOR) on a register value.
+```assembly
+MOV R1, #0     // LED OFF
+EOR R1, R1, #1 // Toggle
+```
+✅ **Expected Result:** R1 flips between 0 and 1
+
+---
+
+## 🔃 4. Array Sum (3 elements)
+Simulate summing values stored in memory using `LDR`.
+Assume R1 points to the start of the array.
+```assembly
+LDR R2, [R1]       // Load first
+LDR R3, [R1, #4]   // Load second
+LDR R4, [R1, #8]   // Load third
+ADD R5, R2, R3
+ADD R5, R5, R4     // Total in R5
+```
+✅ **Try it Yourself:** Add 5 numbers instead.
+
+---
+
+## 📦 5. Stack and Subroutine
+Write a subroutine to multiply two numbers using addition only.
+Push inputs to the stack and return the result in R0.
+
+✅ **Stretch Goal:** Use a loop inside the subroutine!
