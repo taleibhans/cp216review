@@ -1,0 +1,39 @@
+# Stack & Subroutines in ARM
+
+* **The stack is a Last-In, First-Out (LIFO) structure used to store temporary data.**
+
+💡 **Analogy:** Think of a **stack of plates** in a cafeteria – you add (PUSH) plates on top and remove (POP) from the top first.
+
+---
+
+## 🔄 Stack Operations
+
+```assembly
+PUSH {R0, R1}   // Save registers onto stack
+POP {R0, R1}    // Retrieve values from stack
+```
+
+---
+
+## 🏗️ Subroutines (Functions)
+* Subroutines allow code reuse and modular programming.
+* They work like functions in high-level languages.
+
+```assembly
+BL myFunction   // Call function (Branch with Link)
+...
+myFunction:
+  ADD R0, R0, R1
+  BX LR         // Return to caller
+```
+
+📌 **Important Instructions:**
+- `PUSH {}` → Save registers/values to stack
+- `POP {}` → Restore them
+- `SP` → Stack Pointer
+- `LR` → Link Register (stores return address)
+
+✅ **Practice:**
+1. What happens if you forget to `POP` registers after a function call?
+2. Write a subroutine that takes two values from the stack and returns their sum.
+3. Trace the stack changes in a recursive factorial function.
